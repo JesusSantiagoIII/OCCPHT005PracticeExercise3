@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Medical Triage Form </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        body{
+            background-image: url('images/bg02.jpg');
+            background-size: cover;
+            background-attachment: fixed; 
+            background-position: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+        .form-wrapper {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 0 20px;
+        }
+        form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+        img{
+            display: block;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .radio-group {
+            display: flex;
+            align-items: baseline;
+            background-color: #f9f9f9;
+            width: 10%;
+            max-width: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 40px;
+        }
+        .radio-group input {
+            margin-right: 10px;
+        }
+        .confirmation-group {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            width: 100%;
+            max-width: 700px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 40px;
+        }
+        .confirmation-group input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <form action="submit_page.php" method="post">
+            <div class="form-wrapper">
+                <h2> Medical Triage Form </h2>
+                <img src="./images/logo-color.png" />
+                <br />
+                <hr />
+                <br />
+                <label for="firstname">First name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+                <br />
+                <label for="lastname">Last name:</label>
+                <input type="text" id="lastname" name="lastname" required>
+                <label for="birthdate">Date of Birth:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+                <br />
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <br />
+                <label for="sex">Sex</label>
+                <select name="sex" id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <br />
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <br />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br />
+                <hr />
+                <br />
+                <label for="nationality">Nationality:</label>
+                <div class="radio-group">
+                    <input type="radio" id="filipino" name="nationality" value="filipino">
+                    <label for="filipino">Filipino</label>
+                    <br />
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="others" name="nationality" value="others">
+                    <label for="others">Others</label>
+                    <br />
+                </div>
+                <hr />
+                <br />
+                <label for="health">Health Conditions:</label><br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3"> Select all chronic health conditions applicable. </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="radio-group">
+                                    <input type="checkbox" id="alzheimers" name="health" value="alzheimers">
+                                    <label for="alzheimers">Alzheimers</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="radio-group">
+                                    <input type="checkbox" id="diabetes" name="health" value="diabetes">
+                                    <label for="diabetes">Diabetes</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="radio-group">
+                                    <input type="checkbox" id="asthma" name="health" value="asthma">
+                                    <label for="asthma">Asthma</label>
+                                </div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            <div class="radio-group">
+                                <input type="checkbox" id="HIV" name="health" value="HIV" required>
+                                <label for="HIV">HIV</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="radio-group">
+                                <input type="checkbox" id="epilepsy" name="health" value="epilepsy">
+                                <label for="epilepsy">Epilepsy</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="radio-group">
+                                <input type="checkbox" id="cancer" name="health" value="cancer">
+                                <label for="cancer">Cancer</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="radio-group">
+                                <input type="checkbox" id="hypertension" name="health" value="hypertension" required>
+                                <label for="hypertension">Hypertension</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="radio-group">
+                                <input type="checkbox" id="paralysis" name="health" value="paralysis">
+                                <label for="paralysis">Paralysis</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="radio-group">
+                                <input type="checkbox" id="lupus" name="health" value="lupus">
+                                <label for="lupus">Lupus</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <hr />
+            <br />
+            <label for="note">Note:</label> <br />
+            <textarea id="note" name="note" rows="4" cols="50" required></textarea>
+            <br />
+            <br />
+            <hr />
+            <br />
+            <label for="confirmation">User Confirmation:</label><br>
+            <div class="confirmation-group">
+                <input type="radio" id="confirmation" name="confirmation" value="yes" required>
+                <label for="confirmation">I agree to submit my information and allow One Health Medical Center to share this information with all relevant internal and third party bodies to ensure quality service. </label> <br />
+            </div>
+                <br />
+                <button type="submit"> Submit </button>
+                <br />
+            </form>
+        </div>
+    </div>
+</main>
+<hr />
+<footer>
+    <p>
+        One Health Medical Center is committed to protecting client privacy. <br />
+        To go back to the homepage, click <a href="./home.html" target="_blank">here</a>.
+    </p>
+</footer>
+</body>
+</html>
